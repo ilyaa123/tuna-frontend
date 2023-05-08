@@ -1,15 +1,15 @@
 import { instance } from "../instance";
 
-export const register = (data: {
+export const registerApi = (data: {
     email: string,
     password: string,
     type: string
 }) => instance.post('user/register', {...data});
 
-export const login = (data: {
+export const loginApi = (data: {
     email: string,
     password: string
-}) => instance.post('user/login', {...data});
+}) => instance.post('auth/login', {...data});
 
 export const logout = () => instance.post('user/logout');
 

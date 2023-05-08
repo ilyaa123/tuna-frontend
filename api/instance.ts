@@ -2,7 +2,7 @@ import cookieUniversal from 'cookie-universal';
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: process.env.NUXT_BASE_URL,
+    baseURL: process.env.baseUrlApi,
     headers: {
         'Content-Type': 'application/json'
     }

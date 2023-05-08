@@ -25,8 +25,14 @@ export default defineNuxtConfig({
     vite: {
         define: {
             'process.env.DEBUG': false,
+            'process.env.baseUrlApi': JSON.stringify(process.env.NUXT_BASE_URL_API)
         },
     },
+    // runtimeConfig: {
+    //     public: {
+    //         baseUrlApi: process.env.NUXT_BASE_URL_API,
+    //     }
+    // },
     modules: [
         '@vite-pwa/nuxt'
     ],

@@ -2,11 +2,9 @@
   <v-app>
     <!-- <NuxtLoadingIndicator /> -->
     <VitePwaManifest />
-    <v-container style="position: relative" class="pb-0">
       <NuxtLayout>
         <NuxtPage/>
       </NuxtLayout>
-    </v-container>
   </v-app>
 </template>
 <style lang="scss">
@@ -34,5 +32,8 @@
   .layout-enter-from,
   .layout-leave-to {
     filter: grayscale(1);
+  }
+  a{
+    text-decoration: none;
   }
 </style>
