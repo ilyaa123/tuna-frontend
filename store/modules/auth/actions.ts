@@ -21,7 +21,7 @@ type AugmentedActionContext = {
 export interface Actions {
 	[ActionTypes.AUTH__SIGNIN](
 		{ commit }: AugmentedActionContext, 
-		payload: {email:string, password:string}
+		payload: {email:string, pwd:string}
 	): void,
 	[ActionTypes.AUTH__SIGNUP](
 		{ commit }: AugmentedActionContext, 
@@ -35,12 +35,8 @@ export const actions: ActionTree<State, RootState> & Actions = {
 		commit(MutationTypes.AUTH__SET_LOADING, true)
 		try {
 			const res = await loginApi(payload);
-			console.log('AUTH__SIGNIN', res)
 			if (res.status === 200){
 				commit(MutationTypes.AUTH__SET_SUCCESS, undefined);
-				const router = useRouter()
-				router.push('/app')
-
 			}
 		} catch (err) {
 			
@@ -53,16 +49,13 @@ export const actions: ActionTree<State, RootState> & Actions = {
 		try {
 			const res = await registerApi(payload);
 			if (res.status === 200){
-				commit(MutationTypes.AUTH__SET_SUCCESS, undefined)
-				const router = useRouter()
-				setTimeout(() => {
-					router.push('/auth')
-				}, 2000)
+				commit(MutationTypes.AUTH__SET_REG_SUCCESS, undefined)
+				commit(MutationTypes.AUTH__SET_USER_AUTHENTICATED, undefined)
 			}
 		} catch (err) {
 			
 		} finally {
 			commit(MutationTypes.AUTH__SET_LOADING, false)
 		}
-	}
+	},
 }

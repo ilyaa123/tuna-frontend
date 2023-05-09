@@ -5,6 +5,7 @@
         layout: "session-layout",
     });
     const store = useStore();
+    const router = useRouter();
     const valid = ref<boolean>(false);
     const inputRules = {
         email: [(v: string) => !!v || 'Это поле обязательно'],
@@ -15,17 +16,23 @@
     }
     const formValues = reactive({
         email: '',
-        password: '',
+        pwd: '',
     })
 
     const loading = computed(() => store.getters.getAuthLoading);
     const errors = computed(() => store.getters.getAuthErrors);
+    const success = computed(() => store.getters.getAuthSuccess);
 
     const handleOnAuth = () => {
         if (valid.value){
             store.dispatch(ActionTypes.AUTH__SIGNIN, formValues)
         }
     }
+    watch(success, () => {
+        if (success.value){
+            router.push('/app/')
+        }
+    })
 </script>
 <template>
     <v-sheet>
@@ -44,7 +51,7 @@
                     <v-col cols="12">
                         <v-text-field 
                             label="Пароль" 
-                            v-model="formValues.password"
+                            v-model="formValues.pwd"
                             :rules="inputRules.passw" 
                             variant="outlined" 
                         />

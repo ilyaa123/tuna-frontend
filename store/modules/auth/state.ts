@@ -2,12 +2,14 @@ export type State = {
 	isAuthenticated: boolean,
 	AuthLoading: boolean,
 	AuthErrors: string[],
-	AuthSuccess: boolean
+	AuthSuccess: boolean,
+	RegSuccess: boolean
 }
 
 export const state: State = {
 	isAuthenticated: false,
 	AuthLoading: false,
 	AuthErrors: [],
-	AuthSuccess: false
+	AuthSuccess: false,
+	RegSuccess: false
 }

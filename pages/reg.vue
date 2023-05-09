@@ -6,6 +6,7 @@
         layout: "session-layout",
     });
     const store = useStore();
+    const router = useRouter();
     const valid = ref<boolean>(false);
     const inputRules = {
         email: [(v: string) => !!v || 'Это поле обязательно'],
@@ -22,13 +23,18 @@
 
     const loading = computed(() => store.getters.getAuthLoading);
     const errors = computed(() => store.getters.getAuthErrors);
-    const success = computed(() => store.getters.getAuthSuccess);
+    const success = computed(() => store.getters.getRegSuccess);
 
     const handleOnRegistration = () => {
         if (valid.value){
             store.dispatch(ActionTypes.AUTH__SIGNUP, formValues)
         }
     }
+    watch(success, () => {
+        if (success.value){
+            setTimeout(() => {router.push('/auth')}, 1000)
+        }
+    })
 </script>
 <template>
     <v-sheet>

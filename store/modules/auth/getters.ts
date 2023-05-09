@@ -9,11 +9,13 @@ export type Getters = {
 	getAuthLoading(state: State): boolean,
 	getAuthErrors(state: State): string[],
 	getAuthSuccess(state: State): boolean,
+	getRegSuccess(state: State): boolean
 }
 
 export const getters: GetterTree<State, RootState> & Getters = {
 	isAuthenticated: (state) => state.isAuthenticated,
 	getAuthLoading: (state) => state.AuthLoading,
 	getAuthErrors: (state) => state.AuthErrors, 
-	getAuthSuccess: (state) => state.AuthSuccess 
+	getAuthSuccess: (state) => state.AuthSuccess,
+	getRegSuccess: (state) => state.RegSuccess
 }
