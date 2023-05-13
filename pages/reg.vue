@@ -17,7 +17,7 @@
     }
     const formValues = reactive({
         email: '',
-        password: '',
+        pwd: '',
         type: 'base_user'
     })
 
@@ -59,7 +59,7 @@
                         <v-col cols="12">
                             <v-text-field 
                                 label="Пароль" 
-                                v-model="formValues.password"
+                                v-model="formValues.pwd"
                                 :rules="inputRules.passw" 
                                 variant="outlined" 
                             />

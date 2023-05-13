@@ -1,23 +1,12 @@
 <template>
     <div>
-        <v-container style="position: relative" class="pb-0">
+        <v-container style="position: relative; padding-bottom: 0; max-width: 1600px" class="pb-0">
             <v-app-bar flat :absolute="true">
                 <template v-slot:prepend>
                     <nuxt-link to="/">
                         <img src="@/assets/images/logo.png" alt="Логотип" />
                     </nuxt-link>
                 </template>
-                <!-- <v-app-bar-title>
-                    <v-img src="../public/images/logo.png" alt="Логотип" />
-                </v-app-bar-title> -->
-                <!-- <v-list>
-                    <v-list-item-action>
-                        <v-list-item>Test</v-list-item>
-                        <v-list-item>Test1</v-list-item>
-                        <v-list-item>Test2</v-list-item>
-                    </v-list-item-action>
-                </v-list>
-                <v-spacer /> -->
                 <v-list>
                     <v-list-item-action>
                         <v-list-item class="pa-0 mr-2">

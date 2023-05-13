@@ -2,14 +2,14 @@ import { instance } from "../instance";
 
 export const registerApi = (data: {
     email: string,
-    password: string,
+    pwd: string,
     type: string
-}) => instance.post('user/register', {...data}, {headers: {'Accept': '*/*'}});
+}) => instance.post('user/register', {...data});
 
 export const loginApi = (data: {
     email: string,
     pwd: string
-}) => instance.post('auth/login', {...data}, {headers: {'Accept': 'application/json'}});
+}) => instance.post('auth/login', {...data});
 
 export const logout = () => instance.post('user/logout');
 

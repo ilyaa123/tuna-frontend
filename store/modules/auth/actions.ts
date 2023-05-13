@@ -25,7 +25,7 @@ export interface Actions {
 	): void,
 	[ActionTypes.AUTH__SIGNUP](
 		{ commit }: AugmentedActionContext, 
-		payload: {email:string, password:string, type:string}
+		payload: {email:string, pwd:string, type:string}
 	): void,
 
 }
