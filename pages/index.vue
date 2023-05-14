@@ -28,7 +28,7 @@
             <v-col md="6" cols="12">
                 <img style="width: 100%;" src="@/assets/images/home2.png" alt="Картинка">
             </v-col>
-            <v-col md="6" cols="12" class="d-flex align-start flex-column justify-center">
+            <v-col md="6" cols="12" class="d-flex align-start flex-column justify-space-around">
                 <v-list>
                     <v-list-item>
                         <template v-slot:prepend>

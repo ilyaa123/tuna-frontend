@@ -1,23 +1,23 @@
-import cookieUniversal from 'cookie-universal';
 import axios from "axios";
 
+const baseURL = useRuntimeConfig().public.baseUrlApi;
+
 export const instance = axios.create({
-    baseURL: process.env.baseUrlApi,
+    // baseURL: process.env.NUXT_BASE_URL_API,
+    baseURL,
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 export const token = () => {
-    // if (process.client){
-    //     const token =  cookieUniversal().get('token');
-    //     return token;
-    // } else if (process.server){
-    //     const nuxtApp = useNuxtApp();
-    //     console.log('nuxtApp', nuxtApp);
-    //     return '';
-    // }
-    const token = useCookie('se_key');
-    console.log('token', token.value)
-    return token.value
+    if (process.client){
+        const token = useCookie('se_key');
+        console.log("🚀 ~ file: instance.ts:13 ~ client ~ token:", token)
+        return token
+    } else if (process.server){
+        const token = useCookie('se_key');
+        console.log("🚀 ~ file: instance.ts:16 ~ server ~ token:", token)
+    }
+    
 }

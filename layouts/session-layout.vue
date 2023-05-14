@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-container style="position: relative; padding-bottom: 0; max-width: 1600px" class="pb-0">
+        <v-container style="position: relative; padding-bottom: 0; max-width: 1200px" class="pb-0">
             <v-app-bar flat :absolute="true">
                 <template v-slot:prepend>
                     <nuxt-link to="/">

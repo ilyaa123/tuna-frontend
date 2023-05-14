@@ -1,10 +1,14 @@
+<script setup lang="ts">
+  import { instance } from './api/instance';
+  console.log("🚀 ~ file: app.vue:3 ~ instance:", instance.defaults.baseURL)
+</script>
 <template>
   <v-app>
-    <!-- <NuxtLoadingIndicator /> -->
-      <NuxtLayout>
-        <VitePwaManifest />
-        <NuxtPage/>
-      </NuxtLayout>
+    <NuxtLayout>
+      <NuxtLoadingIndicator :throttle="0" />
+      <VitePwaManifest />
+      <NuxtPage/>
+    </NuxtLayout>
   </v-app>
 </template>
 <style lang="scss">
@@ -18,7 +22,7 @@
   }
   .page-enter-active,
   .page-leave-active {
-    transition: all 0.4s;
+    transition: all 0.3s;
   }
   .page-enter-from,
   .page-leave-to {
@@ -27,7 +31,7 @@
   }
   .layout-enter-active,
   .layout-leave-active {
-    transition: all 0.4s;
+    transition: all 0.3s;
   }
   .layout-enter-from,
   .layout-leave-to {

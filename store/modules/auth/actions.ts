@@ -5,6 +5,7 @@ import { State } from './state';
 import { Mutations, MutationTypes } from './mutations';
 import { ActionContext, ActionTree } from 'vuex';
 import { registerApi, loginApi } from '~/api/user';
+import { AxiosError } from 'axios';
 
 export enum ActionTypes {
 	AUTH__SIGNIN = 'SIGNIN',
@@ -39,7 +40,7 @@ export const actions: ActionTree<State, RootState> & Actions = {
 				commit(MutationTypes.AUTH__SET_SUCCESS, undefined);
 			}
 		} catch (err) {
-			
+			const errors = err as AxiosError<{message: string}>;
 		} finally {
 			commit(MutationTypes.AUTH__SET_LOADING, false)
 		}
@@ -53,7 +54,7 @@ export const actions: ActionTree<State, RootState> & Actions = {
 				commit(MutationTypes.AUTH__SET_USER_AUTHENTICATED, undefined)
 			}
 		} catch (err) {
-			
+			const errors = err as AxiosError<{message: string}>;
 		} finally {
 			commit(MutationTypes.AUTH__SET_LOADING, false)
 		}
